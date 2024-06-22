@@ -13,8 +13,10 @@ const startThis = function () {
 // startThis()
 let interval;
 document.getElementById('start').addEventListener('click', function (e) {
+  if(!interval)
   interval = setInterval(startThis, 1000);
 });
 document.getElementById('stop').addEventListener('click', function (e) {
   clearInterval(interval);
+  interval = null   //setting 𝙞𝙣𝙩𝙚𝙧𝙫𝙖𝙡𝙄𝙙 = 𝙣𝙪𝙡𝙡 is mandatory because if we don't do that and by any chance click start button twice then it will get stuck in infinite loop which can never be stopped (can be stopped by reloading page)
 });
